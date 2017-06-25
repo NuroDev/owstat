@@ -11,8 +11,6 @@
 
 </div>
 
-## Screenshot
-
 <img alt="Overwatch Status" src="https://github.com/owstat/owstat/blob/master/build/Screenshot.png?raw=true" />
 
 ## Installation:
