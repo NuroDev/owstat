@@ -1,0 +1,13 @@
+/*
+ * Core Icon styling
+*/
+.iconNotifications {
+  -webkit-app-region: no-drag;
+  width: 28px;
+  height: 28px;
+  position: fixed;
+  margin: 3px 0 0 134px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 32;
+}

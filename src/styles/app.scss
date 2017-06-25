@@ -1,0 +1,230 @@
+/*
+ * Variables
+*/
+$colorWhite: #ffffff;
+$colorOWLightYellow: #FCBD49;
+$colorOWDarkYellow: #FAA02E;
+$colorBodyBG: #222222;
+$colorHeaderBG: #141414;
+$colorRegionBG: #343434;
+$colorRegionButton: #292929;
+$colorRegionButtonHover: #1E1E1E;
+$colorStatusBG: #292929;
+$colorOnline: #75FE88;
+$colorOffline: #FF5353;
+$colorScanning: #53C3FF;
+$colorError: #FFD753;
+
+$fontOverwatch: "Big Noodle Titling", Helvetica, Arial, sans-serif;
+
+$borderRadius: 8px;
+
+/*
+ * Overwatch (Big Noodle Titling) font import
+*/
+@font-face {
+    font-family: 'Big Noodle Titling';
+    src: url('../static/fonts/big-noodle-too.woff'), url('../static/fonts/big-noodle-too-oblique.woff'), url('../static/fonts/big_noodle_titling.ttf');
+}
+
+/*
+ * Global styling
+*/
+body {
+    -webkit-app-region: no-drag;
+    font-family: $fontOverwatch;
+    background-color: $colorBodyBG;
+    color: $colorWhite;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+::selection {
+    background: transparent;
+}
+
+/*
+ * Core App Styling
+*/
+.app {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/*
+ * Core Icon styling
+*/
+.iconNotifications {
+    -webkit-app-region: no-drag;
+    width: 28px;
+    height: 28px;
+    position: fixed;
+    margin: 3px 0 0 -332px;
+    pointer-events: none;
+    user-select: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    &:hover {
+        transform: scale(1.05);
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(1);
+    }
+}
+.iconRegion {
+    width: 64px;
+    height: 64px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    pointer-events: none;
+    user-select: none;
+}
+.iconStatus {
+    width: 151px;
+    height: 151px;
+    margin-top: 10px;
+    pointer-events: none;
+    user-select: none;
+}
+.iconStatusScanning {
+    animation: iconStatusScanningRotate infinite 2s linear;
+}
+@keyframes iconStatusScanningRotate {
+    from { 
+        transform: rotate(0deg); 
+    }
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/*
+ * App header styling
+*/
+.appHeader {
+    width: 100%;
+    height: 65px;
+    margin: -8px 0 0 -8px;
+    -webkit-app-region: drag;
+    background-color: $colorHeaderBG;
+    position: fixed;
+    z-index: 30;
+    h1 {
+        color: $colorOWLightYellow;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-top: 14px;
+        user-select: none;
+        &:hover {
+            cursor: default;
+        }
+        span {
+            color: $colorWhite;
+        }
+    }
+}
+
+/*
+ * App region selector styling
+*/
+
+.appRegionSelect {
+    background-color: $colorRegionBG;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 64px;
+    left: 0px;
+    z-index: 20;
+    table {
+        margin-left: 4px;
+        margin-top: 2px;
+    }
+    .regionButton {
+        width: 98px;
+        height: 98px;
+        margin: 6px;
+        background-color:$colorRegionButton;
+        border: none;
+        border-radius: $borderRadius;
+        padding: 5px;
+        color: $colorWhite;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        &:hover {
+            transform: scale(1.05);
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            background-color: $colorRegionButtonHover;
+            cursor: pointer;
+        }
+        &:active {
+            transform: scale(1);
+            background-color: $colorRegionButtonHover;
+        }
+        &:focus {
+            background-color: $colorRegionButtonHover;
+        }
+        span {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            user-select: none;
+        }
+    }
+}
+
+/*
+ * App status styles
+*/
+.appStatus {
+    position: fixed;
+    top: 63px;
+    left: 262px;
+}
+.appStatusHeader {
+    background-color: $colorStatusBG;
+    padding: 1px 0px 1px 0px;
+    width: 261px;
+}
+.appStatus h1 {
+    font-size: 30px;
+    .onlineGreen {
+        color: $colorOnline;
+    }
+    .offlineRed {
+        color: $colorOffline;
+    }
+    .scanningBlue {
+        color: $colorScanning;
+    }
+    .errorYellow {
+        color: $colorError;
+    }
+    &:hover {
+        cursor: default;
+        user-select: none;
+    }
+}
+
+/*
+ * App error when loading styles
+*/
+.appErrorOnload {
+    width: 100%;
+    height: 100%;
+    background-color: $colorStatusBG;
+    opacity: 85%;
+    text-align: center;
+    h1 {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-top: 10% px;
+        user-select: none;
+    }
+}
