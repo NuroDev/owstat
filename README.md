@@ -3,11 +3,11 @@
 <a href="https://github.com/owstat/owstat/releases">
 <img alt="Overwatch Status" src="https://github.com/owstat/owstat/blob/master/build/icons/owstat-icon.png?raw=true" width="128px" />
 </a>
-# Overwatch Status
-Live Overwatch server status checker
+
+<h1> Overwatch Status </h1>
+<p> Live Overwatch server status checker </p>
 
 [![License](https://img.shields.io/aur/license/yaourt.svg?style=flat-square&colorB=f44336)](https://github.com/owstat/owstat/blob/master/LICENSE) [![gitmoji](https://img.shields.io/badge/gitmoji-%20%F0%9F%98%9C%20%F0%9F%98%8D-FFDD67.svg?style=flat-square)](https://gitmoji.carloscuesta.me/) [![Travis](https://img.shields.io/travis/owstat/owstat/master.svg?style=flat-square)](https://travis-ci.org/owstat/owstat) [![Downloads](https://img.shields.io/github/downloads/owstat/owstat/total.svg?style=flat-square)](https://github.com/owstat/owstat/releases)
-
 
 </center>
 
