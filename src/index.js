@@ -71,7 +71,7 @@ app.on('ready', function () {
 
         // MacOS ONLY style fixes
         if (process.platform === 'darwin') {
-            appPage.insertCSS(fs.readFileSync(path.join(__dirname, '/styles/app_mac.css'), 'utf8'));
+            appPage.insertCSS(fs.readFileSync(path.join(__dirname, '/styles/app_mac.scss'), 'utf8'));
         }
 
         // Show the Main Window
