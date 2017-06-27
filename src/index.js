@@ -30,6 +30,7 @@ function createMainWindow() {
         height: 321, // Window height
         backgroundColor: '#222222', // Background Color
         titleBarStyle: 'hidden-inset', // Titlebar style (MacOS Only)
+        frame: false, // Hide window frame (Win32)
         center: true, // Center app window?
         movable: true, // Is window movable?
         resizable: false, // Is window resizable?
