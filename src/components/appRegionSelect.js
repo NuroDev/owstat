@@ -54,7 +54,7 @@ export default class AppRegionSelector extends React.Component {
                                 <Zoom as="div" duration="2s" className="regionButton">
                                     <img id="regionPTR" className="iconRegion" src="../static/svg/region_ptr.svg"/>
                                     <br />
-                                    <span>{regionNames.America.text_enUS}</span>
+                                    <span>{regionNames.PTR.text_enUS}</span>
                                 </Zoom>
                             </td>
                         </tr>
