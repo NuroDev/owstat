@@ -5,22 +5,22 @@ const statusOptions = {
     ONLINE: {
         text: "ONLINE",
         color: "onlineGreen",
-        tag: <img id="statusOnlineSVG" className="iconStatus" src="../static/svg/status_online.svg"/>
+        icon: <img id="statusOnlineSVG" className="iconStatus" src="../static/svg/status_online.svg"/>
     },
     OFFLINE: {
         text: "OFFLINE",
         color: "offlineRed",
-        tag: <img id="statusOfflineSVG" className="iconStatus" src="../static/svg/status_offline.svg"/>
+        icon: <img id="statusOfflineSVG" className="iconStatus" src="../static/svg/status_offline.svg"/>
     },
     SCANNING: {
         text: "SCANNING",
         color: "scanningBlue",
-        tag: <img id="statusScanningSVG" className="iconStatus iconStatusScanning" src="../static/svg/status_scanning.svg"/>
+        icon: <img id="statusScanningSVG" className="iconStatus iconStatusScanning" src="../static/svg/status_scanning.svg"/>
     },
     ERROR: {
         text: "ERROR",
         color: "errorYellow",
-        tag: <img id="statusErrorSVG" className="iconStatus" src="../static/svg/status_error.svg"/>
+        icon: <img id="statusErrorSVG" className="iconStatus" src="../static/svg/status_error.svg"/>
     }
 }
 
@@ -34,7 +34,7 @@ export default class AppStatus extends React.Component {
                     <SlideRight as="h1" duration="1s">Status: <span className={currentStatus.color}>{currentStatus.text}</span></SlideRight>
                 </div>
                 <Zoom duration="1.5s">
-                    {currentStatus.tag}
+                    {currentStatus.icon}
                 </Zoom>
             </div>
         )
