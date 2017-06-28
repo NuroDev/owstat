@@ -5,6 +5,7 @@ var fs = require('fs');
 // Electron
 var electron = require('electron');
 var menu = electron.Menu;
+var globalShortcut = electron.globalShortcut;
 
 // App Info
 var app = electron.app;
@@ -76,6 +77,11 @@ app.on('ready', function () {
 
         // Show the Main Window
         mainWindow.show();
+
+        // Reload global shortcut (F5)
+        globalShortcut.register('F5', () => {
+            mainWindow.webContents.reload();
+        })
 
         // Open external links in browser
         appPage.on('new-window', function (e, url) {
