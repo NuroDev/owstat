@@ -5,6 +5,7 @@ module.exports = new Config({
         lastWindowState: {
             x: 0,
             y: 0
-        }
+        },
+        language: "en_US"
     }
 })
