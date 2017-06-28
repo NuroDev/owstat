@@ -80,7 +80,9 @@ app.on('ready', function () {
 
         // Reload global shortcut (F5)
         globalShortcut.register('F5', () => {
-            mainWindow.webContents.reload();
+            if(mainWindow.isFocused()) {
+                mainWindow.webContents.reload();
+            }
         })
 
         // Open external links in browser
