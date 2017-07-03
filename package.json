@@ -8,7 +8,7 @@
         "start": "electron-forge start",
         "package": "electron-forge package",
         "make": "electron-forge make",
-        "lint": "echo \"No linting configured\""
+        "lint": "standard"
     },
     "keywords": [],
     "author": "Meadowcottage",
