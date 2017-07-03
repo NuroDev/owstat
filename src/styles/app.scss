@@ -17,8 +17,6 @@ $colorError: #FFD753;
 
 $fontOverwatch: "Big Noodle Titling", Helvetica, Arial, sans-serif;
 
-$borderRadius: 8px;
-
 /*
  * Overwatch (Big Noodle Titling) font import
 */
@@ -161,7 +159,7 @@ body {
         margin: 6px;
         background-color:$colorRegionButton;
         border: none;
-        border-radius: $borderRadius;
+        border-radius: 0px;
         padding: 5px;
         color: $colorWhite;
         -webkit-transition: all .3s;
