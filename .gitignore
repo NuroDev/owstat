@@ -62,3 +62,6 @@ typings/
 
 # Packaged files
 out/
+
+# Package Lock file
+package-lock.json
