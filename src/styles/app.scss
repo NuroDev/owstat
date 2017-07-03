@@ -99,15 +99,20 @@ body {
     }
 }
 .iconWindowControls {
+    user-select: default;
+}
+.iconWindowControls img {
+    -webkit-app-region: no-drag;
     width: 20px;
     height: 20px;
     margin: 5px;
+    user-select: none;
     &:hover {
         cursor: pointer;
     }
 }
 #windowControlMaximize:hover {
-    cursor: not-allowed;
+    cursor: default;
 }
 
 /*

@@ -10,6 +10,7 @@ var globalShortcut = electron.globalShortcut;
 // App Info
 var app = electron.app;
 var appTitle = app.getName();
+var ipcMain = electron.ipcMain;
 var appIsDev = require('electron-is-dev');
 var appConfig = require('./lib/config.js');
 
@@ -80,7 +81,7 @@ app.on('ready', function () {
 
         // Reload global shortcut (F5)
         globalShortcut.register('F5', () => {
-            if(mainWindow.isFocused()) {
+            if (mainWindow.isFocused()) {
                 mainWindow.webContents.reload();
             }
         })
@@ -118,3 +119,13 @@ app.on('before-quit', function () {
         appConfig.set('lastWindowState', mainWindow.getBounds());
     }
 });
+
+// Checking for messages from IPC renderer
+ipcMain.on('asynchronous-message', (event, arg) => {
+    if (arg === 'closeApplicationMessage') {
+        app.quit();
+    }
+    if (arg === 'minimizeApplicationMessage' && !mainWindow.isMinimized()) {
+        mainWindow.minimize();
+    }
+})
