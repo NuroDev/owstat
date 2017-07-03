@@ -58,7 +58,8 @@
         "babel-preset-env": "^1.5.2",
         "babel-preset-react": "^6.24.1",
         "electron-forge": "^3.0.5",
-        "electron-prebuilt-compile": "1.6.11"
+        "electron-prebuilt-compile": "1.6.11",
+        "standard": "^10.0.2"
     },
     "packageIgnore": [
         "LICENSE.md",
