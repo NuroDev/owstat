@@ -22,6 +22,8 @@ export default class AppWindowControls extends React.Component {
                     <img id="windowControlClose" onClick={closeApplication} draggable="false" src="../static/svg/windowControl_Close.svg"/>
                 </FadeIn>
             )
+        } else {
+            return null;
         }
     }
 }
