@@ -1,5 +1,5 @@
 import React from 'react'
-import { Zoom, SlideRight } from 'animate-components'
+import { Bounce, SlideRight } from 'animate-components'
 
 const statusOptions = {
   ONLINE: {
@@ -37,14 +37,14 @@ var outputStatusText = currentStatus.text_enUS
 export default class AppStatus extends React.Component {
   render () {
     return (
-      <div className='app appStatus'>
+      <section className='appStatus'>
         <div className='appStatusHeader'>
           <SlideRight as='h1' duration='1s'>Status: <span className={currentStatus.color}>{outputStatusText}</span></SlideRight>
         </div>
-        <Zoom duration='1.5s'>
+        <Bounce duration='1.5s' className='appStatusIcon'>
           {currentStatus.icon}
-        </Zoom>
-      </div>
+        </Bounce>
+      </section>
     )
   }
 }

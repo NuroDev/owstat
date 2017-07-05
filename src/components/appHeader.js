@@ -1,5 +1,5 @@
 import React from 'react'
-import { Entrance } from 'animate-components'
+import { Zoom } from 'animate-components'
 
 import AppWindowControls from './appWindowControls'
 
@@ -17,12 +17,12 @@ const HeaderName = {
 export default class AppHeader extends React.Component {
   render () {
     return (
-      <div className='app appHeader'>
-        <Entrance as='h1' duration='2.5s'>
+      <section className='appHeader'>
+        <Zoom as='h1' duration='1.5s'>
           {HeaderName.Overwatch.text_enUS} <span>{HeaderName.Stat.text_enUS}</span>
-        </Entrance>
+        </Zoom>
         <AppWindowControls />
-      </div>
+      </section>
     )
   }
 }

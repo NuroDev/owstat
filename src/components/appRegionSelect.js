@@ -23,7 +23,7 @@ const regionNames = {
 export default class AppRegionSelector extends React.Component {
   render () {
     return (
-      <div className='app appRegionSelect'>
+      <section className='appRegionSelect'>
         <table>
           <tbody>
             <tr>
@@ -60,7 +60,7 @@ export default class AppRegionSelector extends React.Component {
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
     )
   }
 }
