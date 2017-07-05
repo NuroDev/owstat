@@ -1,1 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="313 649 941 64"><defs><style>.a{fill:#fff;stroke:#95989a;}.b{stroke:none;}.c{fill:none;}</style></defs><g class="a" transform="translate(313 649)"><rect class="b" width="941" height="64"/><rect class="c" x="0.5" y="0.5" width="940" height="63"/></g></svg>
+<svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 13H5v-2h14v2z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
