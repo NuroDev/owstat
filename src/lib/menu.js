@@ -86,6 +86,10 @@ const menuTemplate = [
       label: 'Refresh',
       accelerator: 'CommandOrControl+R',
       role: 'reload'
+    }, {
+      label: 'Force Refresh',
+      accelerator: 'Shift+CommandOrControl+R',
+      role: 'forcereload'
     }]
   }, {
     label: 'Window',
