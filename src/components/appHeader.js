@@ -1,5 +1,5 @@
 import React from 'react'
-import { Zoom } from 'animate-components'
+import { FadeIn, Zoom } from 'animate-components'
 
 import AppWindowControls from './appWindowControls'
 
@@ -18,6 +18,9 @@ export default class AppHeader extends React.Component {
   render () {
     return (
       <section className='appHeader'>
+        <FadeIn as='div' duration='1.5s' className='appHeaderSettingsIcon'>
+          <img draggable='false' src='../static/svg/windowControl_Settings.svg' />
+        </FadeIn>
         <Zoom as='h1' duration='1.5s'>
           {HeaderName.Overwatch.text_enUS} <span>{HeaderName.Stat.text_enUS}</span>
         </Zoom>

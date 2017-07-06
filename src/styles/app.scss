@@ -147,6 +147,25 @@ body {
             color: $colorWhite;
         }
     }
+    .appHeaderSettingsIcon {
+        position: fixed;
+        top: 4%;
+        left: 3%;
+        user-select: none;
+        z-index: 52;
+        &:hover {
+            cursor: pointer;
+        }
+        img {
+            -webkit-app-region: no-drag;
+            width: 24px;
+            height: 24px;
+            padding: 6px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 // App Window controls styles (Win32 Only)
