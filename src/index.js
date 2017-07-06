@@ -22,12 +22,8 @@ var isQuitting = false
 
 // Main Window
 function createMainWindow () {
-  var lastWindowState = appConfig.get('lastWindowState')
-
   var appView = new electron.BrowserWindow({
     title: appTitle, // Window title
-    x: lastWindowState.x, // Window x position
-    y: lastWindowState.y, // Window y position
     width: 524, // Window width
     height: 321, // Window height
     backgroundColor: '#222222', // Background Color
