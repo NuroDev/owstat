@@ -12,6 +12,7 @@ var app = electron.app
 var appTitle = app.getName()
 var ipcMain = electron.ipcMain
 var appIsDev = require('electron-is-dev')
+var appLog = require('electron-log')
 var appConfig = require('./lib/config.js')
 
 // Main App Window
@@ -36,7 +37,11 @@ function createMainWindow () {
     maximizable: false, // Is window maximizable?
     autoHideMenuBar: true // Hide menubar in window on launch
   })
+
   appView.loadURL(path.join('file://', __dirname, '/static/app.html'))
+
+    // Loading app from file, log it
+  appLog.info('| MAIN | Loaded app from file |')
 
     // When window is closed, hide window
   appView.on('close', (e) => {
@@ -53,6 +58,9 @@ function createMainWindow () {
 }
 
 app.on('ready', () => {
+      // When app is ready, log it
+  appLog.info('| MAIN | App ready |')
+
   mainWindow = createMainWindow()
 
     // Setting App menu
@@ -66,8 +74,14 @@ app.on('ready', () => {
   var appPage = mainWindow.webContents
 
   appPage.on('dom-ready', () => {
+        // When DOM is ready, log it
+    appLog.info('| MAIN | DOM ready |')
+
         // MacOS ONLY style fixes
     if (process.platform === 'darwin') {
+          // OS detected as darwin, log it
+      appLog.info('| MAIN | OS: Darwin (MacOS) | Adding app_mac stylesheets |')
+
       appPage.insertCSS(fs.readFileSync(path.join(__dirname, '/styles/app_mac.scss'), 'utf8'))
     }
 
@@ -77,6 +91,7 @@ app.on('ready', () => {
         // Reload global shortcut (F5)
     globalShortcut.register('F5', () => {
       if (mainWindow.isFocused()) {
+        appLog.info('| MAIN | Reloading |')
         mainWindow.webContents.reload()
       }
     })
@@ -84,6 +99,7 @@ app.on('ready', () => {
         // Open dev tools global shortcut (CommandOrControl+Shift+I)
     globalShortcut.register('Shift+CommandOrControl+I', () => {
       if (mainWindow.isFocused()) {
+        appLog.info('| MAIN | Opening dev tools |')
         mainWindow.webContents.openDevTools()
       }
     })
@@ -104,16 +120,25 @@ app.on('ready', () => {
 })
 
 app.on('window-all-closed', () => {
+      // When all windows closed, log it.
+  appLog.info('| MAIN | All windows closed |')
+
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
+      // Activating window, log it
+  appLog.info('| MAIN | Window activiating |')
+
   mainWindow.show()
 })
 
 app.on('before-quit', () => {
+      // Before app quit, log it
+  appLog.info('| MAIN | App is quitting |')
+
   isQuitting = true
 
     // Saves the current window position and window size to the config file.

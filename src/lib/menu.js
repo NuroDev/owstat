@@ -5,6 +5,7 @@ const app = electron.app
 const appTitle = 'Overwatch Status'
 const appVersion = app.getVersion()
 const appMenu = electron.Menu
+const appLog = require('electron-log')
 
 // File menu for Windows platform
 const win32Template = [{
@@ -12,13 +13,19 @@ const win32Template = [{
   submenu: [{
     label: 'Hide ' + appTitle,
     accelerator: 'Control+H',
-    role: 'hide'
+    role: 'hide',
+    click () {
+      appLog.info('| MAIN - MENU CONTROL | Hiding window |')
+    }
   }, {
     type: 'separator'
   }, {
     label: 'Quit',
     accelerator: 'Control+W',
-    role: 'close'
+    role: 'close',
+    click () {
+      appLog.info('| MAIN - MENU CONTROL | Closing app |')
+    }
   }]
 }]
 
@@ -28,13 +35,17 @@ const macOSTemplate = {
   submenu: [{
     label: 'Hide ' + appTitle,
     accelerator: 'Command+H',
-    role: 'hide'
+    role: 'hide',
+    click () {
+      appLog.info('| MAIN - MENU CONTROL | Hiding window |')
+    }
   }, {
     type: 'separator'
   }, {
     label: 'Quit',
     accelerator: 'Command+Q',
     click () {
+      appLog.info('| MAIN - MENU CONTROL | Closing app |')
       app.quit()
     }
   }]
@@ -85,11 +96,17 @@ const menuTemplate = [
     submenu: [{
       label: 'Refresh',
       accelerator: 'CommandOrControl+R',
-      role: 'reload'
+      role: 'reload',
+      click () {
+        appLog.info('| MAIN - MENU CONTROL | Reloading |')
+      }
     }, {
       label: 'Force Refresh',
       accelerator: 'Shift+CommandOrControl+R',
-      role: 'forcereload'
+      role: 'forcereload',
+      click () {
+        appLog.info('| MAIN - MENU CONTROL | Force reloading |')
+      }
     }]
   }, {
     label: 'Window',
@@ -97,11 +114,17 @@ const menuTemplate = [
     submenu: [{
       label: 'Minimize',
       accelerator: 'CommandOrControl+M',
-      role: 'minimize'
+      role: 'minimize',
+      click () {
+        appLog.info('| MAIN - MENU CONTROL | Minimizing |')
+      }
     }, {
       label: 'Close',
       accelerator: 'CommandOrControl+W',
-      role: 'close'
+      role: 'close',
+      click () {
+        appLog.info('| MAIN - MENU CONTROL | Closing window |')
+      }
     }]
   }, {
     label: 'Help',
