@@ -35,49 +35,6 @@ body {
     background: transparent;
 }
 
-// Icon styling
-.iconRegion {
-    width: 64px;
-    height: 64px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    pointer-events: none;
-    user-select: none;
-}
-.iconStatus {
-    width: 151px;
-    height: 151px;
-    pointer-events: none;
-    user-select: none;
-}
-.iconStatusScanning {
-    animation: iconStatusScanningRotate infinite 2s linear;
-}
-@keyframes iconStatusScanningRotate {
-    from { 
-        transform: rotate(0deg); 
-    }
-    to { 
-        transform: rotate(360deg); 
-    }
-}
-.iconWindowControls {
-    user-select: default;
-}
-.iconWindowControls img {
-    -webkit-app-region: no-drag;
-    width: 20px;
-    height: 20px;
-    margin: 5px;
-    user-select: none;
-    &:hover {
-        cursor: pointer;
-    }
-}
-#windowControlMaximize:hover {
-    cursor: default;
-}
-
 // Core App Styling
 #app {
     text-align: center;
@@ -170,8 +127,22 @@ body {
 
 // App Window controls styles (Win32 Only)
 .appHeaderWindowControls {
-    margin-top: -55px;
-    margin-right: -403px;
+    position: fixed;
+    top: 5%;
+    right: 2%;
+    img {
+        -webkit-app-region: no-drag;
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        user-select: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    #windowControlMaximize:hover {
+        cursor: default;
+    }
 }
 
 // App region selector styling
@@ -220,6 +191,14 @@ body {
             letter-spacing: 1px;
             user-select: none;
         }
+        img {
+            width: 64px;
+            height: 64px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            pointer-events: none;
+            user-select: none;
+        }
     }
 }
 
@@ -231,37 +210,54 @@ body {
     top: 65px;
     left: 50%;
     z-index: 30;
-}
-.appStatusHeader {
-    position: fixed;
-    width: 50%;
-    height: 65px;
-    background-color: $colorStatusBG;
-    line-height: 0.4;
-    z-index: 31;
-}
-.appStatus h1 {
-    z-index: 32;
-    font-size: 30px;
-    .onlineGreen {
-        color: $colorOnline;
+    .appStatusHeader {
+        position: fixed;
+        width: 50%;
+        height: 65px;
+        background-color: $colorStatusBG;
+        line-height: 0.4;
+        z-index: 31;
     }
-    .offlineRed {
-        color: $colorOffline;
+    h1 {
+        z-index: 32;
+        font-size: 30px;
+        .onlineGreen {
+            color: $colorOnline;
+        }
+        .offlineRed {
+            color: $colorOffline;
+        }
+        .scanningBlue {
+            color: $colorScanning;
+        }
+        .errorYellow {
+            color: $colorError;
+        }
+        &:hover {
+            cursor: default;
+            user-select: none;
+        }
     }
-    .scanningBlue {
-        color: $colorScanning;
+    .appStatusIcon {
+        position: fixed;
+        top: 45%;
+        left: 60%;
+        img {
+            width: 151px;
+            height: 151px;
+            pointer-events: none;
+            user-select: none;
+        }
     }
-    .errorYellow {
-        color: $colorError;
+    .appStatusIconSpinning {
+        animation: iconStatusScanningRotate infinite 2s linear;
     }
-    &:hover {
-        cursor: default;
-        user-select: none;
+    @keyframes iconStatusScanningRotate {
+        from { 
+            transform: rotate(0deg); 
+        }
+        to { 
+            transform: rotate(360deg); 
+        }
     }
-}
-.appStatusIcon {
-    position: fixed;
-    top: 45%;
-    left: 60%;
 }
