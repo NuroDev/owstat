@@ -16,7 +16,7 @@ export default class AppWindowControls extends React.Component {
   render () {
     if (process.platform === 'win32') {
       return (
-        <FadeIn duration='1s' as='div' className='iconWindowControls appHeaderWindowControls'>
+        <FadeIn duration='1s' as='div' className='appHeaderWindowControls'>
           <img onClick={minimizeApplication} draggable='false' src='../static/svg/windowControl_Minimize.svg' />
           <img id='windowControlMaximize' draggable='false' src='../static/svg/windowControl_Maximize.svg' />
           <img onClick={closeApplication} draggable='false' src='../static/svg/windowControl_Close.svg' />

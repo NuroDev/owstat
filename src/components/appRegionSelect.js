@@ -29,14 +29,14 @@ export default class AppRegionSelector extends React.Component {
             <tr>
               <td>
                 <Zoom as='div' duration='0.75s' className='regionButton'>
-                  <img id='regionUS' className='iconRegion' src='../static/svg/region_us.svg' />
+                  <img id='regionUS' src='../static/svg/region_us.svg' />
                   <br />
                   <span>{regionNames.America.text_enUS}</span>
                 </Zoom>
               </td>
               <td>
                 <Zoom as='div' duration='1.25s' className='regionButton'>
-                  <img id='regionEU' className='iconRegion' src='../static/svg/region_eu.svg' />
+                  <img id='regionEU' src='../static/svg/region_eu.svg' />
                   <br />
                   <span>{regionNames.Europe.text_enUS}</span>
                 </Zoom>
@@ -45,14 +45,14 @@ export default class AppRegionSelector extends React.Component {
             <tr>
               <td>
                 <Zoom as='div' duration='1.75s' className='regionButton'>
-                  <img id='regionAsia' className='iconRegion' src='../static/svg/region_asia.svg' />
+                  <img id='regionAsia' src='../static/svg/region_asia.svg' />
                   <br />
                   <span>{regionNames.Asia.text_enUS}</span>
                 </Zoom>
               </td>
               <td>
                 <Zoom as='div' duration='2s' className='regionButton'>
-                  <img id='regionPTR' className='iconRegion' src='../static/svg/region_ptr.svg' />
+                  <img id='regionPTR' src='../static/svg/region_ptr.svg' />
                   <br />
                   <span>{regionNames.PTR.text_enUS}</span>
                 </Zoom>
