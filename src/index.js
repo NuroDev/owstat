@@ -81,6 +81,13 @@ app.on('ready', () => {
       }
     })
 
+        // Open dev tools global shortcut (CommandOrControl+Shift+I)
+    globalShortcut.register('Shift+CommandOrControl+I', () => {
+      if (mainWindow.isFocused()) {
+        mainWindow.webContents.openDevTools()
+      }
+    })
+
         // Open external links in browser
     appPage.on('new-window', (e, url) => {
       e.preventDefault()
