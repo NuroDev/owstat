@@ -43,7 +43,7 @@ function createMainWindow () {
   appView.loadURL(path.join('file://', __dirname, '/static/app.html'))
 
     // When window is closed, hide window
-  appView.on('close', function (e) {
+  appView.on('close', (e) => {
     if (!isQuitting) {
       e.preventDefault()
       if (process.platform === 'darwin') {
@@ -56,7 +56,7 @@ function createMainWindow () {
   return appView
 }
 
-app.on('ready', function () {
+app.on('ready', () => {
   mainWindow = createMainWindow()
 
     // Setting App menu
@@ -69,7 +69,7 @@ app.on('ready', function () {
 
   var appPage = mainWindow.webContents
 
-  appPage.on('dom-ready', function () {
+  appPage.on('dom-ready', () => {
         // MacOS ONLY style fixes
     if (process.platform === 'darwin') {
       appPage.insertCSS(fs.readFileSync(path.join(__dirname, '/styles/app_mac.scss'), 'utf8'))
@@ -86,13 +86,13 @@ app.on('ready', function () {
     })
 
         // Open external links in browser
-    appPage.on('new-window', function (e, url) {
+    appPage.on('new-window', (e, url) => {
       e.preventDefault()
       electron.shell.openExternal(url)
     })
 
         // Navigate the window back when the user hits their mouse back button
-    mainWindow.on('app-command', function (e, cmd) {
+    mainWindow.on('app-command', (e, cmd) => {
       if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
         mainWindow.webContents.goBack()
       }
@@ -100,17 +100,17 @@ app.on('ready', function () {
   })
 })
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', ()  => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
-app.on('activate', function () {
+app.on('activate', () => {
   mainWindow.show()
 })
 
-app.on('before-quit', function () {
+app.on('before-quit', () => {
   isQuitting = true
 
     // Saves the current window position and window size to the config file.
