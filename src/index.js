@@ -110,10 +110,6 @@ app.on('ready', () => {
       electron.shell.openExternal(url)
     })
 
-        // Navigate the window back when the user hits their mouse back button
-    mainWindow.on('app-command', (e, cmd) => {
-      if (cmd === 'browser-backward' && mainWindow.webContents.canGoBack()) {
-        mainWindow.webContents.goBack()
       }
     })
   })
