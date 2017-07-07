@@ -150,4 +150,3 @@ app.on('before-quit', () => {
     appConfig.set('lastWindowState', mainWindow.getBounds())
   }
 })
-

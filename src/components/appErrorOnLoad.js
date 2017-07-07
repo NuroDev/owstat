@@ -12,7 +12,7 @@ const errorText = {
         text_enUS: 'Offline',
         text_kr: '오프라인'
       },
-        unknown: {
+      unknown: {
         text_enUS: 'Unkown error',
         text_kr: '알수없는 오류'
       }
