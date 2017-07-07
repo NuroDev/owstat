@@ -114,10 +114,17 @@ app.on('ready', () => {
     ipcMain.on('closeApplicationMessage', () => {
       app.quit()
     })
-        // Checking for close app message from IPC
+        // Checking for minimize app message from IPC
     ipcMain.on('minimizeApplicationMessage', () => {
       if (!mainWindow.isMinimized()) {
         mainWindow.minimize()
+      }
+    })
+        // Checking for open settings window message from IPC
+    ipcMain.on('openSettingsWindowMessage', () => {
+      if (!mainWindow.isMinimized()) {
+        //settingsWindow.show()
+        appLog.info('| MAIN | Opening settings window')
       }
     })
   })

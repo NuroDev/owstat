@@ -1,4 +1,5 @@
 import React from 'react'
+import { ipcRenderer } from 'electron'
 import { FadeIn, Zoom } from 'animate-components'
 
 import AppWindowControls from './appWindowControls'
@@ -14,11 +15,16 @@ const HeaderName = {
   }
 }
 
+function openSettingsWindow () {
+  console.log('Opening settings window')
+  ipcRenderer.send('openSettingsWindowMessage')
+}
+
 export default class AppHeader extends React.Component {
   render () {
     return (
       <section className='appHeader'>
-        <FadeIn as='div' duration='1.5s' className='appHeaderSettingsIcon'>
+        <FadeIn as='div' duration='1.5s' className='appHeaderSettingsIcon' onClick={openSettingsWindow}>
           <img draggable='false' src='../static/svg/windowControl_Settings.svg' />
         </FadeIn>
         <Zoom as='h1' duration='1.5s'>
