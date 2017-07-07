@@ -11,6 +11,10 @@ const errorText = {
       no_internet: {
         text_enUS: 'Offline',
         text_kr: '오프라인'
+      },
+        unknown: {
+        text_enUS: 'Unkown error',
+        text_kr: '알수없는 오류'
       }
     }
   },
@@ -20,7 +24,7 @@ const errorText = {
       text_kr: '인터넷에 연결되어 있지 않습니다'
     },
     unknown: {
-      text_enUS: 'Unkown error',
+      text_enUS: 'Please restart the app',
       text_kr: '알수없는 오류'
     }
   }
