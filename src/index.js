@@ -110,6 +110,14 @@ app.on('ready', () => {
       electron.shell.openExternal(url)
     })
 
+        // Checking for close app message from IPC
+    ipcMain.on('closeApplicationMessage', () => {
+      app.quit()
+    })
+        // Checking for close app message from IPC
+    ipcMain.on('minimizeApplicationMessage', () => {
+      if (!mainWindow.isMinimized()) {
+        mainWindow.minimize()
       }
     })
   })
@@ -143,12 +151,3 @@ app.on('before-quit', () => {
   }
 })
 
-// Checking for messages from IPC renderer
-ipcMain.on('asynchronous-message', (event, arg) => {
-  if (arg === 'closeApplicationMessage') {
-    app.quit()
-  }
-  if (arg === 'minimizeApplicationMessage' && !mainWindow.isMinimized()) {
-    mainWindow.minimize()
-  }
-})
