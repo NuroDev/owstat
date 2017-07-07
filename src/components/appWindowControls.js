@@ -4,12 +4,12 @@ import { FadeIn } from 'animate-components'
 
 function minimizeApplication () {
   console.log('Minimizing App')
-  ipcRenderer.send('asynchronous-message', 'minimizeApplicationMessage')
+  ipcRenderer.send('minimizeApplicationMessage')
 }
 
 function closeApplication (focusedWindow) {
   console.log('Closing App')
-  ipcRenderer.send('asynchronous-message', 'closeApplicationMessage')
+  ipcRenderer.send('closeApplicationMessage')
 }
 
 export default class AppWindowControls extends React.Component {
