@@ -124,7 +124,7 @@ app.on('ready', () => {
     ipcMain.on('openSettingsWindowMessage', () => {
       if (!mainWindow.isMinimized()) {
         // settingsWindow.show()
-        appLog.info('| MAIN | Opening settings window')
+        appLog.info('| MAIN | Opening settings window |')
       }
     })
   })
