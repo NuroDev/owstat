@@ -4,6 +4,7 @@ import * as appLog from 'electron-log'
 import AppHeader from './components/appHeader'
 import AppRegionSelector from './components/appRegionSelect'
 import AppStatus from './components/appStatus'
+import AppError from './components/appError'
 
 export default class App extends React.Component {
   componentDidMount () {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
+        <AppError />
         <AppHeader />
         <AppRegionSelector />
         <AppStatus />
