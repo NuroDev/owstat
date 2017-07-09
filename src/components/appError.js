@@ -1,5 +1,8 @@
 import React from 'react'
+import * as appLog from 'electron-log'
 import { Zoom } from 'animate-components'
+
+const isOnline = require('is-online')
 
 const errorText = {
   header: {
@@ -30,7 +33,31 @@ const errorText = {
   }
 }
 
+var connectionStatus = null
+var errorOnLoad = null
+
+function CheckOnline () {
+  isOnline().then(online => {
+    if (online === true) {
+      connectionStatus = true
+    } else if (online === false) {
+      connectionStatus = false
+    } else {
+      connectionStatus = false
+    }
+  })
+}
+
+function CheckErrorOnLoad () {
+  
+}
+
 export default class AppErrorOnLoad extends React.Component {
+
+  componentDidMount () {
+    appLog.info('| RENDER | Online: ' + connectionStatus)
+  }
+
   render () {
     return (
       <section className='appErrorOnload'>
@@ -38,7 +65,7 @@ export default class AppErrorOnLoad extends React.Component {
           <Zoom duration='2.5s' as='img' id='errorOnLoadIcon' draggable='false' src='../static/svg/status_offline.svg' />
           <Zoom duration='1.5s'>
             <h1>{errorText.header.prefix.text_enUS} <span>{errorText.header.postfix.unknown.text_enUS}</span></h1>
-            <p>{errorText.sub_header.no_internet.text_enUS}</p>
+            <p>{errorText.sub_header.unknown.text_enUS}</p>
           </Zoom>
         </div>
       </section>
