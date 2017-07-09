@@ -115,12 +115,17 @@ body {
         }
         img {
             -webkit-app-region: no-drag;
+            -webkit-transition: all .3s;
             width: 24px;
             height: 24px;
             padding: 6px;
+            transition: all .3s;
             &:hover {
                 cursor: pointer;
             }
+        }
+        img:active {
+            transform: scale(0.8);
         }
     }
 }
@@ -132,16 +137,24 @@ body {
     right: 2%;
     img {
         -webkit-app-region: no-drag;
+        -webkit-transition: all .3s;
         width: 20px;
         height: 20px;
         margin: 5px;
         user-select: none;
+        transition: all .3s;
         &:hover {
             cursor: pointer;
         }
     }
+    img:active {
+        transform: scale(0.8);
+    }
     #windowControlMaximize:hover {
         cursor: default;
+    }
+    #windowControlMaximize:active {
+        transform: scale(1);
     }
 }
 
@@ -179,7 +192,7 @@ body {
             cursor: pointer;
         }
         &:active {
-            transform: scale(1);
+            transform: scale(0.9);
             background-color: $colorRegionButtonHover;
         }
         &:focus {
