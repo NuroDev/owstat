@@ -39,8 +39,6 @@ function CheckOnline () {
   isOnline().then(online => {
     if (online === true) {
       connectionStatus = true
-    } else if (online === false) {
-      connectionStatus = false
     } else {
       connectionStatus = false
     }
@@ -55,16 +53,20 @@ export default class AppErrorOnLoad extends React.Component {
   }
 
   render () {
-    return (
-      <section className='appErrorOnload'>
-        <div className='appErrorContent'>
-          <Zoom duration='2.5s' as='img' id='errorOnLoadIcon' draggable='false' src='../static/svg/status_offline.svg' />
-          <Zoom duration='1.5s'>
-            <h1>{errorText.header.prefix.text_enUS} <span>{errorText.header.postfix.unknown.text_enUS}</span></h1>
-            <p>{errorText.sub_header.unknown.text_enUS}</p>
-          </Zoom>
-        </div>
-      </section>
-    )
+    if (connectionStatus === true) {
+      return null
+    } else if (connectionStatus === false) {
+      return (
+        <section className='appErrorOnload'>
+          <div className='appErrorContent'>
+            <Zoom duration='2.5s' as='img' id='errorOnLoadIcon' draggable='false' src='../static/svg/status_offline.svg' />
+            <Zoom duration='1.5s'>
+              <h1>{errorText.header.prefix.text_enUS} <span>{errorText.header.postfix.no_internet.text_enUS}</span></h1>
+              <p>{errorText.sub_header.no_internet.text_enUS}</p>
+            </Zoom>
+          </div>
+        </section>
+      )
+    }
   }
 }
