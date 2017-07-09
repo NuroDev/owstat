@@ -16,7 +16,6 @@ const HeaderName = {
 }
 
 function openSettingsWindow () {
-  console.log('Opening settings window')
   ipcRenderer.send('openSettingsWindowMessage')
 }
 
