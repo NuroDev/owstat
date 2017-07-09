@@ -82,6 +82,7 @@ app.on('ready', () => {
           // OS detected as darwin, log it
       appLog.info('| MAIN | OS: Darwin (MacOS) | Adding app_mac stylesheets |')
 
+          // Add MacOS stylesheet
       appPage.insertCSS(fs.readFileSync(path.join(__dirname, '/styles/app_mac.scss'), 'utf8'))
     }
 
