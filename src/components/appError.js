@@ -34,7 +34,6 @@ const errorText = {
 }
 
 var connectionStatus = null
-var errorOnLoad = null
 
 function CheckOnline () {
   isOnline().then(online => {
@@ -48,12 +47,9 @@ function CheckOnline () {
   })
 }
 
-function CheckErrorOnLoad () {
-  
-}
+CheckOnline()
 
 export default class AppErrorOnLoad extends React.Component {
-
   componentDidMount () {
     appLog.info('| RENDER | Online: ' + connectionStatus)
   }
