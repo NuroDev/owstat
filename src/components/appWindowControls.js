@@ -1,14 +1,15 @@
 import React from 'react'
 import { ipcRenderer } from 'electron'
+import * as appLog from 'electron-log'
 import { FadeIn } from 'animate-components'
 
 function minimizeApplication () {
-  console.log('Minimizing App')
+  appLog.info('| RENDER | Minimizing app |')
   ipcRenderer.send('minimizeApplicationMessage')
 }
 
 function closeApplication (focusedWindow) {
-  console.log('Closing App')
+  appLog.info('| RENDER | Closing app |')
   ipcRenderer.send('closeApplicationMessage')
 }
 
