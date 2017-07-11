@@ -1,5 +1,7 @@
 import React from 'react'
 import { Bounce, SlideRight } from 'animate-components'
+import * as appLog from 'electron-log'
+const isReachable = require('is-reachable');
 
 // Icon file path prefix
 const iconPathPrefix = '../static/svg/status_'
@@ -31,22 +33,97 @@ const statusOptions = {
   }
 }
 
+// All test IP's provided by Blizzard Entertainment.
+// Source: https://us.battle.net/support/en/article/performing-a-traceroute
+const regionIPs = {
+  US: {
+    primary: '24.105.30.129',
+    secondary: '24.105.62.129'
+  },
+  EU: {
+    primary: '185.60.114.159',
+    secondary: '185.60.112.157'
+  },
+  ASIA: {
+    primary: '211.234.110.1',
+    secondary: '203.66.81.98'
+  }
+}
+
 // Current server status output
 var currentStatus = statusOptions.ONLINE
 
 // Default to US lang
 var outputStatusText = currentStatus.text_enUS
 
+function checkStatus (ip, region) {
+  appLog.info('Pinging ' + region + '...')
+  isReachable(ip).then(reachable => {
+    if(reachable == true) {
+      return true
+    } else if(reachable == false) {
+      return false
+    }
+  });
+}
+
+export function CheckServerStatus(region) {
+  appLog.info('Checking ' + region + ' status...')
+  if (region === 'US') {
+    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
+      appLog.info(region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
+      appLog.info(region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
+  } else if (region === 'EU') {
+    if (checkStatus(regionIPs.EU.primary, region) === false || checkStatus(regionIPs.EU.secondary, region) === false) {
+      appLog.info(region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.ASIA.primary, region) === true || checkStatus(regionIPs.ASIA.secondary, region) === true) {
+      appLog.info(region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
+  } else if (region === 'ASIA') {
+    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
+      appLog.info(region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
+      appLog.info(region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
+  } else if (region === 'PTR') {
+    
+  }
+}
+
+class AppStatusText extends React.Component {
+  render () {
+    return (
+      <div className='appStatusHeader'>
+        <SlideRight as='h1' duration='1s'>Status: <span className={currentStatus.color}>{outputStatusText}</span></SlideRight>
+      </div>
+    )
+  }
+}
+
+class AppIcon extends React.Component {
+  render () {
+    return (
+      <Bounce duration='1.5s' className='appStatusIcon'>
+        <img id='statusSVG' src={currentStatus.icon} />
+      </Bounce>
+    )
+  }
+}
+
 export default class AppStatus extends React.Component {
   render () {
     return (
       <section className='appStatus'>
-        <div className='appStatusHeader'>
-          <SlideRight as='h1' duration='1s'>Status: <span className={currentStatus.color}>{outputStatusText}</span></SlideRight>
-        </div>
-        <Bounce duration='1.5s' className='appStatusIcon'>
-          <img id='statusSVG' src={currentStatus.icon} />
-        </Bounce>
+        <AppStatusText />
+        <AppIcon />
       </section>
     )
   }

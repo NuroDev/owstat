@@ -1,5 +1,6 @@
 import React from 'react'
 import { Zoom } from 'animate-components'
+import { CheckServerStatus } from './appStatus'
 
 const regionNames = {
   America: {
@@ -28,14 +29,14 @@ export default class AppRegionSelector extends React.Component {
           <tbody>
             <tr>
               <td>
-                <Zoom as='div' duration='0.75s' className='regionButton'>
+                <Zoom as='div' duration='0.75s' className='regionButton' onClick={() => CheckServerStatus('US')}>
                   <img id='regionUS' src='../static/svg/region_us.svg' />
                   <br />
                   <span>{regionNames.America.text_enUS}</span>
                 </Zoom>
               </td>
               <td>
-                <Zoom as='div' duration='1.25s' className='regionButton'>
+                <Zoom as='div' duration='1.25s' className='regionButton' onClick={() => CheckServerStatus('EU')}>
                   <img id='regionEU' src='../static/svg/region_eu.svg' />
                   <br />
                   <span>{regionNames.Europe.text_enUS}</span>
@@ -44,14 +45,14 @@ export default class AppRegionSelector extends React.Component {
             </tr>
             <tr>
               <td>
-                <Zoom as='div' duration='1.75s' className='regionButton'>
+                <Zoom as='div' duration='1.75s' className='regionButton' onClick={() => CheckServerStatus('ASIA')}>
                   <img id='regionAsia' src='../static/svg/region_asia.svg' />
                   <br />
                   <span>{regionNames.Asia.text_enUS}</span>
                 </Zoom>
               </td>
               <td>
-                <Zoom as='div' duration='2s' className='regionButton'>
+                <Zoom as='div' duration='2s' className='regionButton' onClick={() => CheckServerStatus('PTR')}>
                   <img id='regionPTR' src='../static/svg/region_ptr.svg' />
                   <br />
                   <span>{regionNames.PTR.text_enUS}</span>
