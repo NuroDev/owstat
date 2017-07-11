@@ -39,27 +39,31 @@ export default class AppErrorOnLoad extends React.Component {
   constructor () {
     super()
     this.state = {
-      connectionStatus: null
+      connectionStatus: true
     }
-    this.checkOnline = this.checkOnline.bind(this)
   }
 
   checkOnline () {
     isOnline().then(online => {
       if (online === true) {
-        this.state.connectionStatus = true
+        this.setState(function(prevState){
+            return {connectionStatus: prevState.connectionStatus}
+        })
       } else {
-        this.state.connectionStatus = false
+        this.setState(function(prevState){
+            return {connectionStatus: !prevState.connectionStatus}
+        })
       }
     })
   }
 
   componentDidMount () {
+    this.checkOnline()
     appLog.info('| RENDER | Online: ' + this.state.connectionStatus)
   }
 
   render () {
-    this.checkOnline()
+    appLog.info('| RENDER | Online: ' + this.state.connectionStatus)
     if (this.state.connectionStatus === true) {
       return null
     } else if (this.state.connectionStatus === false) {
