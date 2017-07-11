@@ -2,6 +2,8 @@ import React from 'react'
 import * as appLog from 'electron-log'
 import { Zoom } from 'animate-components'
 
+import AppWindowControls from './appWindowControls'
+
 const isOnline = require('is-online')
 
 const errorText = {
@@ -33,7 +35,7 @@ const errorText = {
   }
 }
 
-var connectionStatus = null
+var connectionStatus = false
 
 function CheckOnline () {
   isOnline().then(online => {
@@ -58,6 +60,7 @@ export default class AppErrorOnLoad extends React.Component {
     } else if (connectionStatus === false) {
       return (
         <section className='appErrorOnload'>
+          <AppWindowControls />
           <div className='appErrorContent'>
             <Zoom duration='2.5s' as='img' id='errorOnLoadIcon' draggable='false' src='../static/svg/status_offline.svg' />
             <Zoom duration='1.5s'>
