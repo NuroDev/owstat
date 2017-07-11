@@ -52,8 +52,8 @@
         "electron-devtools-installer": "^2.0.1",
         "electron-is-dev": "^0.1.2",
         "electron-log": "^2.2.7",
+        "is-all-reachable": "^1.0.0",
         "is-online": "^7.0.0",
-        "is-reachable": "^2.3.2",
         "react": "^15.6.1",
         "react-dom": "^15.6.1"
     },
