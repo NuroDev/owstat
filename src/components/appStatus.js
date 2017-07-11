@@ -4,7 +4,7 @@ import * as appLog from 'electron-log'
 
 // is-reachable import
 // TODO: Convert to import
-const isReachable = require('is-reachable');
+const isReachable = require('is-reachable')
 
 // Icon file path prefix
 const iconPathPrefix = '../static/svg/status_'
@@ -62,15 +62,15 @@ var outputStatusText = currentStatus.text_enUS
 function checkStatus (ip, region) {
   appLog.info('Pinging ' + region + '...')
   isReachable(ip).then(reachable => {
-    if(reachable == true) {
+    if (reachable === true) {
       return true
-    } else if(reachable == false) {
+    } else if (reachable === false) {
       return false
     }
-  });
+  })
 }
 
-export function CheckServerStatus(region) {
+export function CheckServerStatus (region) {
   appLog.info('Checking ' + region + ' status...')
   if (region === 'US') {
     if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
@@ -97,7 +97,7 @@ export function CheckServerStatus(region) {
       currentStatus = statusOptions.ONLINE
     }
   } else if (region === 'PTR') {
-    
+
   }
 }
 
