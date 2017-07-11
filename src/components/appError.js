@@ -46,12 +46,12 @@ export default class AppErrorOnLoad extends React.Component {
   checkOnline () {
     isOnline().then(online => {
       if (online === true) {
-        this.setState(function(prevState){
-            return {connectionStatus: prevState.connectionStatus}
+        this.setState(function (prevState) {
+          return {connectionStatus: prevState.connectionStatus}
         })
       } else {
-        this.setState(function(prevState){
-            return {connectionStatus: !prevState.connectionStatus}
+        this.setState(function (prevState) {
+          return {connectionStatus: !prevState.connectionStatus}
         })
       }
     })
