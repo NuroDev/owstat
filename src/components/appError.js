@@ -65,7 +65,6 @@ export default class AppErrorOnLoad extends React.Component {
   }
 
   render () {
-    appLog.info('| RENDER | Online: ' + this.state.connectionStatus)
     if (this.state.connectionStatus === true) {
       return null
     } else if (this.state.connectionStatus === false) {
