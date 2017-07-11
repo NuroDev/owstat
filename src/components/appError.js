@@ -55,14 +55,14 @@ export default class AppErrorOnLoad extends React.Component {
   }
 
   componentDidMount () {
-    appLog.info('| RENDER | Online: ' + connectionStatus)
+    appLog.info('| RENDER | Online: ' + this.state.connectionStatus)
   }
 
   render () {
     this.checkOnline()
-    if (connectionStatus === true) {
+    if (this.state.connectionStatus === true) {
       return null
-    } else if (connectionStatus === false) {
+    } else if (this.state.connectionStatus === false) {
       return (
         <section className='appErrorOnload'>
           <AppWindowControls />
