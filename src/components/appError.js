@@ -4,6 +4,8 @@ import { Zoom } from 'animate-components'
 
 import AppWindowControls from './appWindowControls'
 
+// is-online import
+// TODO: Convert to import
 const isOnline = require('is-online')
 
 const errorText = {

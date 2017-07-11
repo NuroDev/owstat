@@ -1,6 +1,9 @@
 import React from 'react'
 import { Bounce, SlideRight } from 'animate-components'
 import * as appLog from 'electron-log'
+
+// is-reachable import
+// TODO: Convert to import
 const isReachable = require('is-reachable');
 
 // Icon file path prefix
