@@ -35,26 +35,31 @@ const errorText = {
   }
 }
 
-var connectionStatus = false
-
-function CheckOnline () {
-  isOnline().then(online => {
-    if (online === true) {
-      connectionStatus = true
-    } else {
-      connectionStatus = false
-    }
-  })
-}
-
-CheckOnline()
-
 export default class AppErrorOnLoad extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      connectionStatus: null
+    }
+    this.checkOnline = this.checkOnline.bind(this)
+  }
+
+  checkOnline () {
+    isOnline().then(online => {
+      if (online === true) {
+        this.state.connectionStatus = true
+      } else {
+        this.state.connectionStatus = false
+      }
+    })
+  }
+
   componentDidMount () {
     appLog.info('| RENDER | Online: ' + connectionStatus)
   }
 
   render () {
+    this.checkOnline()
     if (connectionStatus === true) {
       return null
     } else if (connectionStatus === false) {
