@@ -35,6 +35,8 @@ export default class AppRegionSelector extends React.Component {
                   <span>{regionNames.America.text_enUS}</span>
                 </Zoom>
               </td>
+            </tr>
+            <tr>
               <td>
                 <Zoom as='div' duration='1.25s' className='regionButton' onClick={() => CheckServerStatus('EU')}>
                   <img id='regionEU' src='../static/svg/region_eu.svg' />
@@ -49,13 +51,6 @@ export default class AppRegionSelector extends React.Component {
                   <img id='regionAsia' src='../static/svg/region_asia.svg' />
                   <br />
                   <span>{regionNames.Asia.text_enUS}</span>
-                </Zoom>
-              </td>
-              <td>
-                <Zoom as='div' duration='2s' className='regionButton' onClick={() => CheckServerStatus('PTR')}>
-                  <img id='regionPTR' src='../static/svg/region_ptr.svg' />
-                  <br />
-                  <span>{regionNames.PTR.text_enUS}</span>
                 </Zoom>
               </td>
             </tr>

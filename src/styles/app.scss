@@ -161,20 +161,20 @@ body {
 // App region selector styling
 .appRegionSelect {
     position: fixed;
-    width: 50%;
+    width: 42%;
     height: calc(100% - 65px);
     top: 65px;
     left: 0;
     background-color: $colorRegionBG;
-    line-height: 1.0;
+    line-height: 0.9;
     z-index: 40;
     table {
         margin: auto;
         margin-top: 2px;
     }
     .regionButton {
-        width: 98px;
-        height: 98px;
+        width: 186px;
+        height: 56px;
         margin: 6px;
         padding: 5px;
         color: $colorWhite;
@@ -199,16 +199,16 @@ body {
             background-color: $colorRegionButtonHover;
         }
         span {
-            font-size: 16px;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: 1px;
             user-select: none;
         }
         img {
-            width: 64px;
-            height: 64px;
-            margin-top: 5px;
-            margin-bottom: 5px;
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin: 2.5px auto 2.5px 10px;
             pointer-events: none;
             user-select: none;
         }
@@ -218,14 +218,14 @@ body {
 // App status styles
 .appStatus {
     position: fixed;
-    width: 50%;
+    width: 58%;
     height: calc(100% - 65px);
     top: 65px;
-    left: 50%;
+    left: 42%;
     z-index: 30;
     .appStatusHeader {
         position: fixed;
-        width: 50%;
+        width: 58%;
         height: 65px;
         background-color: $colorStatusBG;
         line-height: 0.4;
@@ -234,6 +234,7 @@ body {
     h1 {
         z-index: 32;
         font-size: 30px;
+        letter-spacing: 1px;
         .onlineGreen {
             color: $colorOnline;
         }
@@ -253,11 +254,11 @@ body {
     }
     .appStatusIcon {
         position: fixed;
-        top: 45%;
-        left: 60%;
+        top: 42%;
+        left: 54%;
         img {
-            width: 151px;
-            height: 151px;
+            width: 180px;
+            height: 180px;
             pointer-events: none;
             user-select: none;
         }
