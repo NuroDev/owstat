@@ -3,7 +3,7 @@ import { Bounce, SlideRight } from 'animate-components'
 import * as appLog from 'electron-log'
 
 // is-all-reachable import
-// TODO: Convert to import
+// TODO: Convert to ES6
 const isAllReachable = require('is-all-reachable')
 
 // Icon file path prefix
