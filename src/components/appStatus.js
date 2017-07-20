@@ -2,10 +2,10 @@ import React from 'react'
 import { Bounce, SlideRight } from 'animate-components'
 import * as appLog from 'electron-log'
 
-// is-all-reachable import 
-// TODO: Convert to ES6 
-const isAllReachable = require('is-all-reachable') 
- 
+// is-all-reachable import
+// TODO: Convert to ES6
+const isAllReachable = require('is-all-reachable')
+
 // Icon file path prefix
 const iconPathPrefix = '../static/svg/status_'
 
@@ -59,48 +59,48 @@ var currentStatus = statusOptions.ONLINE
 // Default to US lang
 var outputStatusText = currentStatus.text_enUS
 
-function checkStatus (firstIP, secondIP, region) { 
-  appLog.info('| RENDER | Pinging ' + region + '...') 
-  isAllReachable([ 
-    firstIP, 
-    secondIP 
-  ], (err, reachable) => { 
-    if (reachable === true) { 
-      return true 
-    } else if (reachable === false) { 
-      return false 
-    } else if (err) { 
-      appLog.error('| RENDER | Error when checking server') 
-    } 
-  }) 
-} 
+function checkStatus (firstIP, secondIP, region) {
+  appLog.info('| RENDER | Pinging ' + region + '...')
+  isAllReachable([
+    firstIP,
+    secondIP
+  ], (err, reachable) => {
+    if (reachable === true) {
+      return true
+    } else if (reachable === false) {
+      return false
+    } else if (err) {
+      appLog.error('| RENDER | Error when checking server')
+    }
+  })
+}
 
 export function CheckServerStatus (region) {
   appLog.info('| RENDER | Checking ' + region + ' status...')
-  if (region === 'US') { 
-    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) { 
-      appLog.info('| RENDER | ' + region + 'is offline...') 
-      currentStatus = statusOptions.OFFLINE 
-    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) { 
-      appLog.info('| RENDER | ' + region + 'is online') 
-      currentStatus = statusOptions.ONLINE 
-    } 
-  } else if (region === 'EU') { 
-    if (checkStatus(regionIPs.EU.primary, region) === false || checkStatus(regionIPs.EU.secondary, region) === false) { 
-      appLog.info('| RENDER | ' + region + 'is offline...') 
-      currentStatus = statusOptions.OFFLINE 
-    } else if (checkStatus(regionIPs.ASIA.primary, region) === true || checkStatus(regionIPs.ASIA.secondary, region) === true) { 
-      appLog.info('| RENDER | ' + region + 'is online') 
-      currentStatus = statusOptions.ONLINE 
-    } 
-  } else if (region === 'ASIA') { 
-    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) { 
-      appLog.info('| RENDER | ' + region + 'is offline...') 
-      currentStatus = statusOptions.OFFLINE 
-    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) { 
-      appLog.info('| RENDER | ' + region + 'is online') 
-      currentStatus = statusOptions.ONLINE 
-    } 
+  if (region === 'US') {
+    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
+      appLog.info('| RENDER | ' + region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
+      appLog.info('| RENDER | ' + region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
+  } else if (region === 'EU') {
+    if (checkStatus(regionIPs.EU.primary, region) === false || checkStatus(regionIPs.EU.secondary, region) === false) {
+      appLog.info('| RENDER | ' + region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.ASIA.primary, region) === true || checkStatus(regionIPs.ASIA.secondary, region) === true) {
+      appLog.info('| RENDER | ' + region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
+  } else if (region === 'ASIA') {
+    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
+      appLog.info('| RENDER | ' + region + 'is offline...')
+      currentStatus = statusOptions.OFFLINE
+    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
+      appLog.info('| RENDER | ' + region + 'is online')
+      currentStatus = statusOptions.ONLINE
+    }
   }
 }
 
