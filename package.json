@@ -10,9 +10,12 @@
         "make": "electron-forge make",
         "lint": "standard"
     },
-    "keywords": [],
     "author": "Meadowcottage",
-    "license": "GNU General Public License",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/owstat/owstat.git"
+    },
     "config": {
         "forge": {
             "make_targets": {
@@ -66,16 +69,12 @@
         "standard": "^10.0.2"
     },
     "packageIgnore": [
-        "LICENSE.md",
         "LICENSE",
         "README.md",
         ".DS_Store",
         ".travis.yml",
-        "appveyor.yml",
-        "test",
         "out",
         "build/Screenshot.png",
-        "build/Mockup-Final.sketch",
-        "build/Mockup-Status_icons.sketch "
+        "build/Screenshot-mac.png"
     ]
 }
