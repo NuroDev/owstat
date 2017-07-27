@@ -1,10 +1,7 @@
 import React from 'react'
 import { Bounce, SlideRight } from 'animate-components'
 import * as appLog from 'electron-log'
-
-// is-all-reachable import
-// TODO: Convert to ES6
-const isAllReachable = require('is-all-reachable')
+import * as isAllReachable from 'is-all-reachable'
 
 // Icon file path prefix
 const iconPathPrefix = '../static/svg/status_'
@@ -61,6 +58,7 @@ var outputStatusText = currentStatus.text_enUS
 
 function checkStatus (firstIP, secondIP, region) {
   appLog.info('| RENDER | Pinging ' + region + '...')
+
   isAllReachable([
     firstIP,
     secondIP
@@ -70,7 +68,7 @@ function checkStatus (firstIP, secondIP, region) {
     } else if (reachable === false) {
       return false
     } else if (err) {
-      appLog.error('| RENDER | Error when checking server')
+      appLog.error('| RENDER | Error in status check: ' + err)
     }
   })
 }
@@ -104,7 +102,7 @@ export function CheckServerStatus (region) {
   }
 }
 
-class AppStatusText extends React.Component {
+class StatusText extends React.Component {
   render () {
     return (
       <div className='appStatusHeader'>
@@ -114,7 +112,7 @@ class AppStatusText extends React.Component {
   }
 }
 
-class AppIcon extends React.Component {
+class StatusIcon extends React.Component {
   render () {
     return (
       <Bounce duration='1.5s' className='appStatusIcon'>
@@ -128,8 +126,8 @@ export default class AppStatus extends React.Component {
   render () {
     return (
       <section className='appStatus'>
-        <AppStatusText />
-        <AppIcon />
+        <StatusText />
+        <StatusIcon />
       </section>
     )
   }
