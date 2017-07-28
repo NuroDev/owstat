@@ -33,8 +33,10 @@ const statusOptions = {
   }
 }
 
-// All test IP's provided by Blizzard Entertainment.
-// Source: https://us.battle.net/support/en/article/performing-a-traceroute
+/**
+ * All server test IP's provided by Blizzard Entertainment support.
+ * Source: https://us.battle.net/support/en/article/performing-a-traceroute
+ */
 const regionIPs = {
   US: {
     primary: '24.105.30.129',
@@ -56,23 +58,43 @@ var currentStatus = statusOptions.ONLINE
 // Default to US lang
 var outputStatusText = currentStatus.text_enUS
 
-function checkStatus (firstIP, secondIP, region) {
+/**
+ * Tests connection to host and returns either true, false or error.
+ * @param {any} primaryIP
+ * @param {any} secondaryIP
+ * @param {any} region
+ */
+function TestConnection (primaryIP, secondaryIP, region) {
   appLog.info('| RENDER | Pinging ' + region + '...')
 
   isAllReachable([
-    firstIP,
-    secondIP
+    primaryIP,
+    secondaryIP
   ], (err, reachable) => {
     if (reachable === true) {
       return true
     } else if (reachable === false) {
       return false
     } else if (err) {
-      appLog.error('| RENDER | Error in status check: ' + err)
+      appLog.error('| RENDER | Error in status check: ' + err + ' |')
     }
   })
 }
 
+/**
+ * Runs test connection from parameters and returns log info and
+ * sets currentstatus variable accordingly.
+ * @param {any} primaryIP
+ * @param {any} secondaryIP
+ * @param {any} inputRegion
+ */
+
+/**
+ * Sets current status to scanning.
+ * Runs CheckServer function with paramater of @param region.
+ * @export
+ * @param {string} region
+ */
 export function CheckServerStatus (region) {
   appLog.info('| RENDER | Checking ' + region + ' status...')
   if (region === 'US') {
