@@ -16,6 +16,9 @@
         "type": "git",
         "url": "https://github.com/owstat/owstat.git"
     },
+    "engines" : { 
+        "node" : ">=8" 
+    },
     "config": {
         "forge": {
             "make_targets": {
