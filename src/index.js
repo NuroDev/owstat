@@ -21,6 +21,9 @@ var mainWindow = void 0
 // If the application is quitting
 var isQuitting = false
 
+// Log node version [DEBUG PURPOSES]
+appLog.info('Node: ' + process.version)
+
 // Main Window
 function createMainWindow () {
   var appView = new electron.BrowserWindow({
