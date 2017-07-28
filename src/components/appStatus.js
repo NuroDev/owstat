@@ -88,6 +88,15 @@ function TestConnection (primaryIP, secondaryIP, region) {
  * @param {any} secondaryIP
  * @param {any} inputRegion
  */
+function CheckServer (primaryIP, secondaryIP, inputRegion) {
+  if (TestConnection(primaryIP, secondaryIP, inputRegion) === false) {
+    appLog.info('| RENDER | ' + inputRegion + ' is offline |')
+    currentStatus = statusOptions.OFFLINE
+  } else if (TestConnection(primaryIP, secondaryIP, inputRegion) === true) {
+    appLog.info('| RENDER | ' + inputRegion + ' is online |')
+    currentStatus = statusOptions.ONLINE
+  }
+}
 
 /**
  * Sets current status to scanning.
@@ -96,31 +105,19 @@ function TestConnection (primaryIP, secondaryIP, region) {
  * @param {string} region
  */
 export function CheckServerStatus (region) {
+  currentStatus = statusOptions.SCANNING
   appLog.info('| RENDER | Checking ' + region + ' status...')
-  if (region === 'US') {
-    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
-      appLog.info('| RENDER | ' + region + 'is offline...')
-      currentStatus = statusOptions.OFFLINE
-    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
-      appLog.info('| RENDER | ' + region + 'is online')
-      currentStatus = statusOptions.ONLINE
-    }
-  } else if (region === 'EU') {
-    if (checkStatus(regionIPs.EU.primary, region) === false || checkStatus(regionIPs.EU.secondary, region) === false) {
-      appLog.info('| RENDER | ' + region + 'is offline...')
-      currentStatus = statusOptions.OFFLINE
-    } else if (checkStatus(regionIPs.ASIA.primary, region) === true || checkStatus(regionIPs.ASIA.secondary, region) === true) {
-      appLog.info('| RENDER | ' + region + 'is online')
-      currentStatus = statusOptions.ONLINE
-    }
-  } else if (region === 'ASIA') {
-    if (checkStatus(regionIPs.US.primary, region) === false || checkStatus(regionIPs.US.secondary, region) === false) {
-      appLog.info('| RENDER | ' + region + 'is offline...')
-      currentStatus = statusOptions.OFFLINE
-    } else if (checkStatus(regionIPs.US.primary, region) === true || checkStatus(regionIPs.US.secondary, region) === true) {
-      appLog.info('| RENDER | ' + region + 'is online')
-      currentStatus = statusOptions.ONLINE
-    }
+
+  switch (region) {
+    case 'US':
+      CheckServer(regionIPs.US.primary, regionIPs.US.secondary, region)
+      break
+    case 'EU':
+      CheckServer(regionIPs.EU.primary, regionIPs.EU.secondary, region)
+      break
+    case 'ASIA':
+      CheckServer(regionIPs.ASIA.primary, regionIPs.ASIA.secondary, region)
+      break
   }
 }
 
